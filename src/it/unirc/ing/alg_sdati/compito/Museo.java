@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import org.apache.commons.collections15.Factory;
 import org.apache.commons.collections15.Transformer;
-import edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance;
 import edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree;
 import edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath;
 import edu.uci.ics.jung.graph.Graph;
