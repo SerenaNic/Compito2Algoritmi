@@ -60,7 +60,7 @@ public class Sala {
 		return c;
 	}
 
-	public int numDonneLingue()
+	public int numDonne()
 	{
 		int c=0;
 		for(Dipendente d: dipList)
