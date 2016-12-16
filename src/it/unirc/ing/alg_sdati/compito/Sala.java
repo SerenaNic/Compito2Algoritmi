@@ -55,7 +55,7 @@ public class Sala {
 	{
 		int c=0;
 		for (Opera o: opList)
-			if(o.isPrestito()&&o.getValoreArtistico()<v)
+			if(o.isPrestito()&&o.getValoreArtistico()>v)
 				c++;
 		return c;
 	}
@@ -64,7 +64,7 @@ public class Sala {
 	{
 		int c=0;
 		for(Dipendente d: dipList)
-			if(d.getSesso().equals("F")&&d.getNumLingue()>2)
+			if(d.getSesso().equals("F"))
 				c++;
 		return c;
 	}
