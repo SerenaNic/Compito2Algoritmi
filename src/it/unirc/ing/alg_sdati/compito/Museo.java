@@ -18,6 +18,8 @@ public class Museo {
 		g = new UndirectedSparseGraph<Sala,Corridoio>();
 	}
 
+	
+	//O(1)
 	public void m1(Sala s1, Sala s2, int c){
 		if(!g.findEdge(s1,s2)){
 			Corridoio corr = new Corridoio(s1.getNomeSala()+"-"+s2.getNomeSala(),c);
@@ -25,7 +27,7 @@ public class Museo {
 		}
 	}
 
-
+	//O(n^2)
 	public LinkedList<Sala> m2(int k, int l, int v){
 		LinkedList<Sala> res = new LinkedList<Sala>();
 		UnweightedShortestPath<Sala,Corridoio> sup = new UnweightedShortestPath<Sala,Corridoio>(g);
@@ -43,6 +45,7 @@ public class Museo {
 		return res;
 	}
 
+	//O(n^2)
 	public LinkedList<Corridoio> m3(LinkedList<Sala> salaList, int k){
 		UndirectedGraph<Sala,Corridoio> g1 = g.clone();
 		for(Sala sala: salaList)
