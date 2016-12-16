@@ -25,7 +25,7 @@ public class Museo {
 		g = new UndirectedSparseGraph<Sala,Corridoio>();
 	}
 
-	public void f1(Sala s1, Sala s2, int c)
+	public void m1(Sala s1, Sala s2, int c)
 	{
 		Corridoio corr = new Corridoio(1,c);
 
@@ -34,7 +34,7 @@ public class Museo {
 	}
 
 
-	public LinkedList<Sala> f2(int k, int l, int v)
+	public LinkedList<Sala> m2(int k, int l, int v)
 	{
 		LinkedList<Sala> saleList = new LinkedList<Sala>();
 		LinkedList<Sala> saleList2 = new LinkedList<Sala>();
@@ -60,7 +60,7 @@ public class Museo {
 		return saleList;
 	}
 
-	public LinkedList<Opera> f3 (LinkedList<Sala> salaList, int m)
+	public LinkedList<Opera> m3 (LinkedList<Sala> salaList, int m)
 	{
 		LinkedList<Opera> opList = new LinkedList<Opera>();
 
