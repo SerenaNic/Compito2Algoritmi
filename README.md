@@ -9,6 +9,9 @@ Si rappresenti la situazione sopra descritta e si implementino le seguenti funzi
 
 3.	metodo m3 che accetta in ingresso una lista di sale saleList. Il museo deve essere ristrutturato, perciò dovranno essere eliminate tutte le sale presenti nella lista saleList. La funzione restituisce, se esiste, l’elenco dei corridoi che non bisogna eliminare per garantire che tutte le sale restanti siano raggiungibili da ogni altra sala e tale da assicurare un costo minimo di manutenzione totale.
 
+4.	metodo m4 che riceve due sale s1 e s2. La funzione deve restituire il minimo numero di corridoi che è necessario attraversare per andare dalla sala s1 alla sala s2, senza passare per sale in cui non è presente l’audioguida.
+
+
 Valutare la complessità delle funzioni proposte.
 
 
