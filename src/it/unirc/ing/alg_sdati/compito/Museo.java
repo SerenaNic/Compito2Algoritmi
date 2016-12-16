@@ -35,7 +35,7 @@ public class Museo {
 		for(Sala s1: g.getVertices()){
 			int c=0;
 			for(Sala s2: g.getVertices()){
-				if(s2.isAudioGuida()&&s2.numOperePrestito(v)<=k&&s2.numDonneLingue()>l)
+				if(s2.isAudioGuida()&&s2.numOperePrestito(v)<=k&&s2.numDonne()>l)
 					if(sup.getDistance(s1, s2)!=null&&!s1.equals(s2))
 						c++;	
 			}
