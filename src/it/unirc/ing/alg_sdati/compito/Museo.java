@@ -28,15 +28,14 @@ public class Museo {
 
 	public LinkedList<Sala> m2(int k, int l, int v){
 		LinkedList<Sala> res = new LinkedList<Sala>();
+		UnweightedShortestPath<Sala,Corridoio> sup = new UnweightedShortestPath<Sala,Corridoio>(g);
 
 		for(Sala s1: g.getVertices()){
 			int c=0;
 			for(Sala s2: g.getVertices()){
-				if(s2.isAudioGuida()&&s2.numOperePrestito(v)<=k&&s2.numDonneLingue()>l){
-					UnweightedShortestPath<Sala,Corridoio> sup = new UnweightedShortestPath<Sala,Corridoio>(g);
+				if(s2.isAudioGuida()&&s2.numOperePrestito(v)<=k&&s2.numDonneLingue()>l)
 					if(sup.getDistance(s1, s2)!=null&&!s1.equals(s2))
-						c++;
-				}
+						c++;	
 			}
 			if(c>=3)
 				res.add(s1);
