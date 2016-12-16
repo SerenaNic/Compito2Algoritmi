@@ -18,8 +18,7 @@ public class Museo {
 		g = new UndirectedSparseGraph<Sala,Corridoio>();
 	}
 
-	public void m1(Sala s1, Sala s2, int c)
-	{
+	public void m1(Sala s1, Sala s2, int c){
 		if(!g.findEdge(s1,s2)){
 			Corridoio corr = new Corridoio(s1.getNomeSala()+"-"+s2.getNomeSala(),c);
 			g.addEdge(corr, s1, s2);
@@ -49,7 +48,6 @@ public class Museo {
 		UndirectedGraph<Sala,Corridoio> g1 = g.clone();
 		for(Sala sala: salaList)
 			g1.removeVertex(sala);
-
 
 		Transformer<Corridoio, Integer> wtTransformer = new Transformer<Corridoio, Integer>() {
 			public Integer transform(Corridoio link) {
