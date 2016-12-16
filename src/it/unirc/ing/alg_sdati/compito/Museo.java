@@ -46,50 +46,11 @@ public class Museo {
 		return res;
 	}
 
-	public LinkedList<Opera> m3 (LinkedList<Sala> salaList, int m){
-		LinkedList<Opera> opList = new LinkedList<Opera>();
-
-		boolean found = false;
-		for(Sala sal1: g.getVertices()){
-			for(Sala sal2: salaList)
-				if(sal1.equals(sal2))
-					found=true;
-			
-			if(!found){
-				for(Opera op: sal1.getOpList()){
-					if(!op.isPrestito()&&op.getEtaStimata()>=m)
-						opList.add(op);
-				}
-			}
-		}
-		return opList;
-
-	}
-
-	public int sicurezza (Sala s1, Sala s2, LinkedList<Sala> L, int k)
-	{
+	public LinkedList<Corridoio> m3(LinkedList<Sala> salaList, int k){
 		UndirectedGraph<Sala,Corridoio> g1 = g.clone();
-		for(Sala sala: L)
+		for(Sala sala: salaList)
 			g1.removeVertex(sala);
 
-		LinkedList<Sala> salaList = new LinkedList<Sala>();
-		ListIterator<Sala> iterator = salaList.listIterator();
-
-		while(iterator.hasNext()){
-			Sala sala= iterator.next();
-			for(Dipendente d: sala.getDipList())
-				if(d.getNumAnniServizio()<5&&d.getQualifica().equals("sorveglianza"))
-					g1.removeVertex(sala);
-		}
-
-		LinkedList<Corridoio> corrList = new LinkedList<Corridoio>();
-		ListIterator<Corridoio> iterator2 = corrList.listIterator();
-
-		while(iterator2.hasNext()){
-			Corridoio c = iterator2.next();
-			if(c.getCapacita()<k)
-				g1.removeEdge(c);
-		}
 
 		Transformer<Corridoio, Integer> wtTransformer = new Transformer<Corridoio, Integer>() {
 			public Integer transform(Corridoio link) {
@@ -97,11 +58,11 @@ public class Museo {
 			}
 		};
 		
-		PrimMinimumSpanningTree<Sala, Corridoio> mst = 
-				new PrimMinimumSpanningTree<Sala, Corridoio>( UndirectedSparseGraph.<Sala, Corridoio>getFactory() );
-		DijkstraDistance<Sala, Corridoio> dd= new DijkstraDistance<Sala, Corridoio>(g1,wtTransformer);
-		Number dist = dd.getDistance(s1, s2);
-		return dist.intValue();
+		PrimMinimumSpanningTree<Sala, Corridoio> pmst = 
+				new PrimMinimumSpanningTree<Sala, Corridoio>( UndirectedSparseGraph.<Sala, Corridoio>getFactory(),wtTransformer );
+		Graph<Sala,Corridoio> mst = pmst.transform(g1);
+		res.addAll(mst.getEdges());
+		return res;
 	}
 
 }
