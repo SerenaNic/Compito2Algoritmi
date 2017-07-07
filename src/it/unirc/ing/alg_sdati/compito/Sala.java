@@ -60,11 +60,11 @@ public class Sala {
 		return c;
 	}
 
-	public int numDonne()
+	public int numDonne30()
 	{
 		int c=0;
 		for(Dipendente d: dipList)
-			if(d.getSesso().equals("F"))
+			if(d.getSesso().equals("F")&&d.getEta()<30)
 				c++;
 		return c;
 	}
